@@ -1,10 +1,10 @@
-import {CookiesPopup} from "../oracle-home-page-elements/cookies.popup";
-import {LanguageSettingsPopup} from "../oracle-home-page-elements/language.settings.popup";
-import {NavigationBar} from "../oracle-home-page-elements/navigation.bar";
+import {CookiesPopupPage} from "../oracle-home-page-elements/cookies.popup.page";
+import {LanguageSettingsPopupPage} from "../oracle-home-page-elements/language.settings.popup.page";
+import {NavigationBarPage} from "../oracle-home-page-elements/navigation.bar.page";
 
 export interface IOraclePageElements
 {
-    cookiesPopup:CookiesPopup;
-    languageSettingsPopup:LanguageSettingsPopup;
-    navigationBar:NavigationBar;
+    cookiesPopup:CookiesPopupPage;
+    languageSettingsPopup:LanguageSettingsPopupPage;
+    navigationBar:NavigationBarPage;
 }

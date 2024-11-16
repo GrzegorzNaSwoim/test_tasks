@@ -1,9 +1,9 @@
 import {BrowserDriver} from "../driver-wrapper/custom.driver";
 import {until} from "selenium-webdriver";
 import {OracleHomePageModel} from "./oracle-home-page-models/oracle.home.page.model";
-import {CookiesPopup} from "./oracle-home-page-elements/cookies.popup";
-import {LanguageSettingsPopup} from "./oracle-home-page-elements/language.settings.popup";
-import {NavigationBar} from "./oracle-home-page-elements/navigation.bar";
+import {CookiesPopupPage} from "./oracle-home-page-elements/cookies.popup.page";
+import {LanguageSettingsPopupPage} from "./oracle-home-page-elements/language.settings.popup.page";
+import {NavigationBarPage} from "./oracle-home-page-elements/navigation.bar.page";
 import {IOraclePageElements} from "./oracle-home-page-interfaces/oracle.page.elements.interface";
 
 /**
@@ -23,9 +23,9 @@ export class OracleHomePage {
         this.driver = webDriver;
         this.oracleHomePageModel = new OracleHomePageModel();
         this.pageElements = {
-            cookiesPopup: new CookiesPopup(this.driver, this.oracleHomePageModel.cookiesPopup),
-            languageSettingsPopup: new LanguageSettingsPopup(this.driver, this.oracleHomePageModel.languagePopup),
-            navigationBar: new NavigationBar(this.driver, this.oracleHomePageModel.navigationBar)
+            cookiesPopup: new CookiesPopupPage(this.driver, this.oracleHomePageModel.cookiesPopup),
+            languageSettingsPopup: new LanguageSettingsPopupPage(this.driver, this.oracleHomePageModel.languagePopup),
+            navigationBar: new NavigationBarPage(this.driver, this.oracleHomePageModel.navigationBar)
         }
     }
 
