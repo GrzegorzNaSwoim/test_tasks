@@ -1,0 +1,21 @@
+{
+  "name": "oracletaskssolutions",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/chai": "^5.0.1",
+    "@types/mocha": "^10.0.9",
+    "chai": "^5.1.2",
+    "mocha": "^10.8.2",
+    "selenium-webdriver": "^4.26.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  }
+}
