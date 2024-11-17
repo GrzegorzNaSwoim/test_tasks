@@ -18,7 +18,7 @@ describe('Test Suite for Functions which returns the same result but has diff im
         describe(`test suite for reverse stings in array to method ${name}`, (): void => {
             const testData: ArrayInverterTestData = new ArrayInverterTestData();
 
-            it(`Reversing strings in array for expected data ${testData.TC_1_EXPECTED_DATA} and input data ${testData}`,
+            it(`Should be reversed array ${testData}`,
                 (): void => {
 
                     const result: string[] = method(testData.BASE_INPUT_DATA);
@@ -31,7 +31,7 @@ describe('Test Suite for Functions which returns the same result but has diff im
 
                 })
 
-            it("Empty array reverse scenario", (): void => {
+            it("Should be empty array", (): void => {
 
                 const result: string[] = method(testData.TC_2_INPUT_DATA);
                 expect(result).to.be.an(testData.EXPECTED_DATA_TYPE,
@@ -42,7 +42,7 @@ describe('Test Suite for Functions which returns the same result but has diff im
                     `Expected result should be ${testData.TC_2_EXPECTED_DATA}`);
 
             })
-            it("Array with the duplicated values reverse", (): void => {
+            it("Should be array with duplicated string values", (): void => {
                 const result: string[] = method(testData.TC_3_INPUT_DATA);
                 expect(result).to.be.an(testData.EXPECTED_DATA_TYPE,
                     'Result should be array type');
@@ -53,7 +53,7 @@ describe('Test Suite for Functions which returns the same result but has diff im
 
             })
 
-            it("Array with single value reverse", (): void => {
+            it("Should be array with one string value", (): void => {
                 let result: string[] = method(testData.TC_4_INPUT_DATA);
                 expect(result).to.be.an(testData.EXPECTED_DATA_TYPE,
                     'Result should be array type');
