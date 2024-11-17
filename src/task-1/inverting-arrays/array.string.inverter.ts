@@ -3,11 +3,10 @@ export class ArrayStringInverter {
     public arrayStringInvert(inputArrayOfString: string[]): Array<string> {
         this.inputDataValidation(inputArrayOfString);
         return [...inputArrayOfString].reverse();
-
     }
 
     public arrayStringInvertUsingLoop(inputArrayOfString: string[]): Array<string> {
-        let result: Array<string> = [];
+        let result: string[] = [];
         this.inputDataValidation(inputArrayOfString);
         if (inputArrayOfString.length > 0) {
             for (let index = inputArrayOfString.length - 1; index >= 0; index--) {

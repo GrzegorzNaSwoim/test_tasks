@@ -12,7 +12,7 @@ export class OracleJavaDownloadsPage {
 
     static async _getFileSizeFromData(fileSize: WebElement): Promise<number> {
         let fileSizeAsNumber: number = 0;
-        let textElement: string = await fileSize.getText();
+        const textElement: string = await fileSize.getText();
         if (textElement.length > 0) {
             fileSizeAsNumber = parseFloat(textElement.replace(' MB', ''));
         }
@@ -30,10 +30,10 @@ export class OracleJavaDownloadsPage {
     public async collectFileSizes(): Promise<number[]> {
         await this.driver.browserDriver.wait(until.titleIs(this.javaDownloadsPageModel.PAGE_TITLE),
             this.javaDownloadsPageModel.LOADING_TIMEOUT);
-        let downloadSizes: WebElement[] = await this.driver.browserDriver.findElements(this.javaDownloadsPageModel.FILE_SIZE_ELEMENTS)
+        const downloadSizes: WebElement[] = await this.driver.browserDriver.findElements(this.javaDownloadsPageModel.FILE_SIZE_ELEMENTS)
         let filesSizes: number[] = [];
         for (let fileSize of downloadSizes) {
-            let digitFileSize: number = await OracleJavaDownloadsPage._getFileSizeFromData(fileSize)
+            const digitFileSize: number = await OracleJavaDownloadsPage._getFileSizeFromData(fileSize)
             filesSizes.push(digitFileSize);
         }
         return filesSizes;

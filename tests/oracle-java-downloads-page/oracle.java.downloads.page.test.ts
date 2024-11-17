@@ -1,9 +1,9 @@
 import {describe} from "mocha";
 
 import {expect} from "chai";
-import {BrowserDriver} from "../src/task-2/driver-wrapper/custom.driver";
-import {OracleHomePage} from "../src/task-2/oracle-home-page/oracle.home.page";
-import {OracleJavaDownloadsPage} from "../src/task-2/oracle-java-downloads-page/oracle.java.downloads.page";
+import {BrowserDriver} from "../../src/task-2/driver-wrapper/custom.driver";
+import {OracleHomePage} from "../../src/task-2/oracle-home-page/oracle.home.page";
+import {OracleJavaDownloadsPage} from "../../src/task-2/oracle-java-downloads-page/oracle.java.downloads.page";
 
 describe('Tests related to Oracle java download page', function (): void {
     const EXPECTED_FILE_SIZE: number = 100;

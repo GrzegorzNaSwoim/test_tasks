@@ -1,5 +1,5 @@
 import {expect} from "chai";
-import {fetchData} from "../src/task-3/api.get.request";
+import {fetchData} from "../../src/task-3/api.get.request";
 import {requestData} from "./test-data/api.request.testdata";
 
 describe(`Api Get request for ${requestData.URL}`, (): void   => {

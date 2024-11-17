@@ -27,7 +27,7 @@ export class CookiesPopupPage {
      * @private
      */
     private async _switchContextToCookiesPopup(): Promise<void> {
-        let cookiesPopup: WebElement = await this.driver.browserDriver.findElement(
+        const cookiesPopup: WebElement = await this.driver.browserDriver.findElement(
             this.cookiesPopupModel.popupWindowIframes.MAIN_POPUP_WINDOW_I_FRAME);
         await this.driver.browserDriver.switchTo().frame(cookiesPopup);
     }
@@ -40,7 +40,7 @@ export class CookiesPopupPage {
     private async _clickAcceptAllButton(): Promise<void> {
         await this.driver.browserDriver.wait(until.elementLocated(
             this.cookiesPopupModel.popupIframeButtons.ACCEPT_ALL_COOKIES_BUTTON), this.LOADING_TIMEOUT);
-        let acceptCookiesButton = await this.driver.browserDriver.findElement(
+        const acceptCookiesButton = await this.driver.browserDriver.findElement(
             this.cookiesPopupModel.popupIframeButtons.ACCEPT_ALL_COOKIES_BUTTON);
         await acceptCookiesButton.click();
     }
