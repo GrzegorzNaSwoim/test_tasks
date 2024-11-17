@@ -17,8 +17,8 @@ describe('Tests related to Oracle java download page', function (): void {
         await oracleHomePage.openOraclePage()
         await oracleHomePage.pageElements.cookiesPopup.acceptAllCookies()
         await oracleHomePage.pageElements.languageSettingsPopup.closeLanguageSettingsPopup()
-        await oracleHomePage.pageElements.navigationBar.chooseResourcesFromNavMenu()
-        await oracleHomePage.pageElements.navigationBar.chooseJavaDownloadLink()
+        await oracleHomePage.pageElements.navigationBar.selectResourcesFromNavMenu()
+        await oracleHomePage.pageElements.navigationBar.selectJavaDownloadLink()
     })
     it(`Download size displayed on the page is less than ${EXPECTED_FILE_SIZE} MB.`, async (): Promise<void> => {
 

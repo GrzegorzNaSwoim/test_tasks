@@ -6,16 +6,16 @@ import {until, WebElement} from "selenium-webdriver";
  * Handles the interaction with the Language Settings Popup on the Oracle Home Page.
  */
 export class LanguageSettingsPopupPage {
-    LOADING_TIMEOUT = 2000;
-    languagePopupModel: LanguagePopupModel;
-    driver: BrowserDriver;
+    public readonly LOADING_TIMEOUT = 2000;
+    public readonly languagePopupModel: LanguagePopupModel;
+    public readonly driver: BrowserDriver;
 
     /**
      * Constructor for LanguageSettingsPopupPage.
      * @param webdriver - The browser driver to interact with the page.
      * @param languagePopupModel - The model representing the language settings popup elements.
      */
-    constructor(webdriver: BrowserDriver, languagePopupModel: LanguagePopupModel) {
+    public constructor(webdriver: BrowserDriver, languagePopupModel: LanguagePopupModel) {
         this.driver = webdriver;
         this.languagePopupModel = languagePopupModel;
     }
@@ -24,7 +24,7 @@ export class LanguageSettingsPopupPage {
      * Clicks the close button in the language settings popup.
      * Waits for the close button to be located and visible, then clicks it.
      */
-    async clickCloseButton(): Promise<void> {
+    public async clickCloseButton(): Promise<void> {
         await this.driver.browserDriver.wait(until.elementLocated(
             this.languagePopupModel.languageWindowPopupButtons.CLOSE_LANGUAGE_POPUP_BUTTON), this.LOADING_TIMEOUT);
         const closeCountryPopupButton: WebElement = await this.driver.browserDriver.findElement(
@@ -36,7 +36,7 @@ export class LanguageSettingsPopupPage {
     /**
      * Closes the language settings popup by switching to the default content and clicking the close button.
      */
-    async closeLanguageSettingsPopup(): Promise<void> {
+    public async closeLanguageSettingsPopup(): Promise<void> {
         await this.driver.browserDriver.switchTo().defaultContent();
         await this.clickCloseButton();
     }

@@ -1,12 +1,12 @@
 import {Builder, WebDriver} from "selenium-webdriver";
 
 export class BrowserDriver {
-    browserDriver: WebDriver;
+    public browserDriver: WebDriver;
 
-    constructor(browserName: string) {
+    public constructor(browserName: string) {
         this.browserDriver = new Builder().forBrowser(browserName).build();
     }
-    async closeBrowser(): Promise<void> {
+    public async closeBrowser(): Promise<void> {
         await this.browserDriver.quit();
     }
 }

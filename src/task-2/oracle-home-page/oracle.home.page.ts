@@ -10,16 +10,16 @@ import {IOraclePageElements} from "./oracle-home-page-interfaces/oracle.page.ele
  * Represents the Oracle Home Page and manages interactions with its elements.
  */
 export class OracleHomePage {
-    LOADING_PAGE_TIMEOUT: number = 1000;
+    private readonly LOADING_PAGE_TIMEOUT: number = 1000;
     public driver: BrowserDriver;
-    public pageElements: IOraclePageElements;
-    private oracleHomePageModel: OracleHomePageModel;
+    public readonly pageElements: IOraclePageElements;
+    private readonly oracleHomePageModel: OracleHomePageModel;
 
     /**
      * Constructor for OracleHomePage.
      * @param webDriver - The browser driver to interact with the Oracle Home Page.
      */
-    constructor(webDriver: BrowserDriver) {
+    public constructor(webDriver: BrowserDriver) {
         this.driver = webDriver;
         this.oracleHomePageModel = new OracleHomePageModel();
         this.pageElements = {

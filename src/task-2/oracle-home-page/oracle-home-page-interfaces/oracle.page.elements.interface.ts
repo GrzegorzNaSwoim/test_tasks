@@ -4,7 +4,7 @@ import {NavigationBarPage} from "../oracle-home-page-elements/navigation.bar.pag
 
 export interface IOraclePageElements
 {
-    cookiesPopup:CookiesPopupPage;
-    languageSettingsPopup:LanguageSettingsPopupPage;
-    navigationBar:NavigationBarPage;
+    readonly cookiesPopup:CookiesPopupPage;
+    readonly languageSettingsPopup:LanguageSettingsPopupPage;
+    readonly navigationBar:NavigationBarPage;
 }

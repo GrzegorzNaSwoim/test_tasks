@@ -3,10 +3,10 @@ import {until, WebElement} from "selenium-webdriver";
 import {OracleJavaDownloadsPageModel} from "./oracle-java-downloads-page-models/oracle.java.downloads.page.model";
 
 export class OracleJavaDownloadsPage {
-    public javaDownloadsPageModel: OracleJavaDownloadsPageModel = new OracleJavaDownloadsPageModel;
+    public readonly javaDownloadsPageModel: OracleJavaDownloadsPageModel = new OracleJavaDownloadsPageModel;
     public driver: BrowserDriver;
 
-    constructor(webDriver: BrowserDriver) {
+    public constructor(webDriver: BrowserDriver) {
         this.driver = webDriver;
     }
 

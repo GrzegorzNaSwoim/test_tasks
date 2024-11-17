@@ -3,20 +3,20 @@ import {CookiesPopupModel} from "./oracle-home-page-popups-model/cookies-popup-m
 import {LanguagePopupModel} from "./oracle-home-page-popups-model/language.popup.model";
 
 export class ResourcesSubMenuModel {
-    JAVA_DOWNLOAD_LINK: By = By.xpath(
+    public readonly JAVA_DOWNLOAD_LINK: By = By.xpath(
         '//div[@id="u30nav"]//div[@id="resources-nav"]//a[@data-lbl="resources:downloads/java-downloads"]')
 }
 
 export class NavigationBarModel {
-    RESOURCES_BUTTON: By = By.xpath('//div[@id="u30nav"]//button[@data-navtarget="resources"]');
-    resourcesSubMenu: ResourcesSubMenuModel = new ResourcesSubMenuModel();
+    public readonly RESOURCES_BUTTON: By = By.xpath('//div[@id="u30nav"]//button[@data-navtarget="resources"]');
+    public readonly resourcesSubMenu: ResourcesSubMenuModel = new ResourcesSubMenuModel();
 }
 
 
 export class OracleHomePageModel {
-    PAGE_URL: string = 'https://www.oracle.com/';
-    PAGE_TITLE: string = "Oracle | Cloud Applications and Cloud Platform";
-    navigationBar: NavigationBarModel = new NavigationBarModel();
-    cookiesPopup: CookiesPopupModel = new CookiesPopupModel();
-    languagePopup: LanguagePopupModel = new LanguagePopupModel();
+    public readonly PAGE_URL: string = 'https://www.oracle.com/';
+    public readonly PAGE_TITLE: string = "Oracle | Cloud Applications and Cloud Platform";
+    public readonly navigationBar: NavigationBarModel = new NavigationBarModel();
+    public readonly cookiesPopup: CookiesPopupModel = new CookiesPopupModel();
+    public readonly languagePopup: LanguagePopupModel = new LanguagePopupModel();
 }

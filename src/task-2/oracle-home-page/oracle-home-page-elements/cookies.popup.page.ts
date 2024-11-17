@@ -8,16 +8,16 @@ import { until, WebElement } from "selenium-webdriver";
  * Handles the interaction with the Cookies Popup on the Oracle Home Page.
  */
 export class CookiesPopupPage {
-    LOADING_TIMEOUT = 5000
-    cookiesPopupModel: CookiesPopupModel;
-    driver: BrowserDriver;
+    public readonly LOADING_TIMEOUT = 5000
+    public readonly cookiesPopupModel: CookiesPopupModel;
+    public driver: BrowserDriver;
 
     /**
      * Constructor for CookiesPopupPage.
      * @param webdriver - The browser driver to interact with the page.
      * @param cookiesPopupModel - The model representing the cookies popup elements.
      */
-    constructor(webdriver: BrowserDriver, cookiesPopupModel: CookiesPopupModel) {
+    public constructor(webdriver: BrowserDriver, cookiesPopupModel: CookiesPopupModel) {
         this.driver = webdriver;
         this.cookiesPopupModel = cookiesPopupModel;
     }
