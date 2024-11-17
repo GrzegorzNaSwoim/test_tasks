@@ -1,7 +1,6 @@
 import {LanguagePopupModel} from "../oracle-home-page-models/oracle-home-page-popups-model/language.popup.model";
 import {BrowserDriver} from "../../driver-wrapper/custom.driver";
 import {until, WebElement} from "selenium-webdriver";
-
 /**
  * Handles the interaction with the Language Settings Popup on the Oracle Home Page.
  */
@@ -19,7 +18,6 @@ export class LanguageSettingsPopupPage {
         this.driver = webdriver;
         this.languagePopupModel = languagePopupModel;
     }
-
     /**
      * Clicks the close button in the language settings popup.
      * Waits for the close button to be located and visible, then clicks it.
@@ -32,7 +30,6 @@ export class LanguageSettingsPopupPage {
         await this.driver.browserDriver.wait(until.elementIsVisible(closeCountryPopupButton), this.LOADING_TIMEOUT);
         await closeCountryPopupButton.click();
     }
-
     /**
      * Closes the language settings popup by switching to the default content and clicking the close button.
      */

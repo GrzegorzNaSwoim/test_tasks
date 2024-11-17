@@ -8,7 +8,6 @@ import {until, WebElement} from "selenium-webdriver";
 export class NavigationBarPage {
     public readonly navigationMenuModel: NavigationBarModel;
     public readonly driver: BrowserDriver;
-
     /**
      * Constructor for NavigationBarPage.
      * @param webdriver - The browser driver to interact with the page.
@@ -18,7 +17,6 @@ export class NavigationBarPage {
         this.driver = webdriver;
         this.navigationMenuModel = navigationBarModel;
     }
-
     /**
      * Selects the "Resources" option from the navigation menu.
      * This function finds the resources button in the navigation bar and clicks it.
@@ -28,7 +26,6 @@ export class NavigationBarPage {
             this.navigationMenuModel.RESOURCES_BUTTON);
         await resourcesButton.click();
     }
-
     /**
      * Selects the "Java Download" link from the resources submenu.
      * This function waits for the Java Download link to be visible, then clicks it.

@@ -11,7 +11,6 @@ export class CookiesPopupPage {
     public readonly LOADING_TIMEOUT = 5000
     public readonly cookiesPopupModel: CookiesPopupModel;
     public driver: BrowserDriver;
-
     /**
      * Constructor for CookiesPopupPage.
      * @param webdriver - The browser driver to interact with the page.
@@ -21,37 +20,35 @@ export class CookiesPopupPage {
         this.driver = webdriver;
         this.cookiesPopupModel = cookiesPopupModel;
     }
-
     /**
      * Switches the browser context to the cookies popup iframe.
      * @private
      */
-    private async _switchContextToCookiesPopup(): Promise<void> {
+    private async switchContextToCookiesPopup(): Promise<void> {
         const cookiesPopup: WebElement = await this.driver.browserDriver.findElement(
             this.cookiesPopupModel.popupWindowIframes.MAIN_POPUP_WINDOW_I_FRAME);
         await this.driver.browserDriver.switchTo().frame(cookiesPopup);
     }
-
     /**
      * Clicks the "Accept All" button in the cookies popup.
      * Waits for the button to be located, then clicks it.
      * @private
      */
-    private async _clickAcceptAllButton(): Promise<void> {
+    private async clickAcceptAllButton(): Promise<void> {
         await this.driver.browserDriver.wait(until.elementLocated(
             this.cookiesPopupModel.popupIframeButtons.ACCEPT_ALL_COOKIES_BUTTON), this.LOADING_TIMEOUT);
         const acceptCookiesButton = await this.driver.browserDriver.findElement(
             this.cookiesPopupModel.popupIframeButtons.ACCEPT_ALL_COOKIES_BUTTON);
+        // await this.driver.browserDriver.executeAsyncScript("arguments[0].click();", acceptCookiesButton)
         await acceptCookiesButton.click();
     }
-
     /**
      * Accepts all cookies by switching to the cookies popup iframe and clicking the "Accept All" button.
      */
     public async acceptAllCookies(): Promise<void> {
-        await this._switchContextToCookiesPopup();
+        await this.switchContextToCookiesPopup();
         try {
-            await this._clickAcceptAllButton();
+            await this.clickAcceptAllButton();
         } catch (error) {
             console.log(error);
         }

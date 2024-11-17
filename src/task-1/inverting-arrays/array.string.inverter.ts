@@ -1,10 +1,8 @@
 export class ArrayStringInverter {
-
     public arrayStringInvert(inputArrayOfString: string[]): Array<string> {
         this.inputDataValidation(inputArrayOfString);
         return [...inputArrayOfString].reverse();
     }
-
     public arrayStringInvertUsingLoop(inputArrayOfString: string[]): Array<string> {
         let result: string[] = [];
         this.inputDataValidation(inputArrayOfString);
@@ -15,7 +13,6 @@ export class ArrayStringInverter {
         }
         return result;
     }
-
     public inputDataValidation(inputArrayOfString: any) {
         if (!Array.isArray(inputArrayOfString) || !inputArrayOfString.every(item => typeof item === 'string')) {
             throw new Error("Invalid input: input must be an array of strings");
