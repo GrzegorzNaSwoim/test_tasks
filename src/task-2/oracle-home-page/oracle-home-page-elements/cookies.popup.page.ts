@@ -1,8 +1,6 @@
-import {
-    CookiesPopupModel
-} from "../oracle-home-page-models/oracle-home-page-popups-model/cookies-popup-model";
-import { BrowserDriver } from "../../driver-wrapper/custom.driver";
-import { until, WebElement } from "selenium-webdriver";
+import {CookiesPopupModel} from "../oracle-home-page-models/oracle-home-page-popups-model/cookies-popup-model";
+import {BrowserDriver} from "../../driver-wrapper/custom.driver";
+import {until, WebElement} from "selenium-webdriver";
 
 /**
  * Handles the interaction with the Cookies Popup on the Oracle Home Page.
@@ -11,6 +9,7 @@ export class CookiesPopupPage {
     public readonly LOADING_TIMEOUT = 5000
     public readonly cookiesPopupModel: CookiesPopupModel;
     public driver: BrowserDriver;
+
     /**
      * Constructor for CookiesPopupPage.
      * @param webdriver - The browser driver to interact with the page.
@@ -20,6 +19,7 @@ export class CookiesPopupPage {
         this.driver = webdriver;
         this.cookiesPopupModel = cookiesPopupModel;
     }
+
     /**
      * Switches the browser context to the cookies popup iframe.
      * @private
@@ -29,6 +29,7 @@ export class CookiesPopupPage {
             this.cookiesPopupModel.popupWindowIframes.MAIN_POPUP_WINDOW_I_FRAME);
         await this.driver.browserDriver.switchTo().frame(cookiesPopup);
     }
+
     /**
      * Clicks the "Accept All" button in the cookies popup.
      * Waits for the button to be located, then clicks it.
@@ -39,9 +40,9 @@ export class CookiesPopupPage {
             this.cookiesPopupModel.popupIframeButtons.ACCEPT_ALL_COOKIES_BUTTON), this.LOADING_TIMEOUT);
         const acceptCookiesButton = await this.driver.browserDriver.findElement(
             this.cookiesPopupModel.popupIframeButtons.ACCEPT_ALL_COOKIES_BUTTON);
-        // await this.driver.browserDriver.executeAsyncScript("arguments[0].click();", acceptCookiesButton)
         await acceptCookiesButton.click();
     }
+
     /**
      * Accepts all cookies by switching to the cookies popup iframe and clicking the "Accept All" button.
      */
