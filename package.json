@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test_page": "mocha tests/**/*.page.test.ts",
+    "test_api": "mocha tests/**/*.request.test.ts",
+    "test_unit": "mocha tests/**/*.inverter.test.ts",
+    "test": "mocha tests/**/*.test.ts"
   },
   "keywords": [],
   "author": "",
@@ -26,6 +29,9 @@
     "extension": [
       "ts"
     ],
-    "spec": "tests/**/*.test.ts"
+    "paraller": true
+  },
+  "dependencies": {
+    "@types/chrome": "^0.0.283"
   }
 }

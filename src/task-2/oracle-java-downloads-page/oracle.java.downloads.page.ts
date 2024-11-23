@@ -1,12 +1,11 @@
-import {BrowserDriver} from "../driver-wrapper/custom.driver";
-import {until, WebElement} from "selenium-webdriver";
+import {until, WebDriver, WebElement} from "selenium-webdriver";
 import {OracleJavaDownloadsPageModel} from "./oracle-java-downloads-page-models/oracle.java.downloads.page.model";
 
 export class OracleJavaDownloadsPage {
     public readonly javaDownloadsPageModel: OracleJavaDownloadsPageModel = new OracleJavaDownloadsPageModel;
-    public driver: BrowserDriver;
+    public driver: WebDriver;
 
-    public constructor(webDriver: BrowserDriver) {
+    public constructor(webDriver: WebDriver) {
         this.driver = webDriver;
     }
 
@@ -20,9 +19,9 @@ export class OracleJavaDownloadsPage {
     }
 
     public async getFirstFileSize(): Promise<number> {
-        await this.driver.browserDriver.wait(until.titleIs(this.javaDownloadsPageModel.PAGE_TITLE),
+        await this.driver.wait(until.titleIs(this.javaDownloadsPageModel.PAGE_TITLE),
             this.javaDownloadsPageModel.LOADING_TIMEOUT);
-        const fileSize: WebElement = await this.driver.browserDriver.findElement(this.javaDownloadsPageModel
+        const fileSize: WebElement = await this.driver.findElement(this.javaDownloadsPageModel
             .FIRST_DOWNLOAD_FILE_SIZE)
         return await OracleJavaDownloadsPage.getFileSizeFromData(fileSize);
     }
@@ -31,9 +30,9 @@ export class OracleJavaDownloadsPage {
      * Method prepared for collecting all size in case searching values less than 100 mb in all displayed file sizes
      */
     public async collectFileSizes(): Promise<number[]> {
-        await this.driver.browserDriver.wait(until.titleIs(this.javaDownloadsPageModel.PAGE_TITLE),
+        await this.driver.wait(until.titleIs(this.javaDownloadsPageModel.PAGE_TITLE),
             this.javaDownloadsPageModel.LOADING_TIMEOUT);
-        const downloadSizes: WebElement[] = await this.driver.browserDriver.findElements(this.javaDownloadsPageModel.FILE_SIZE_ELEMENTS)
+        const downloadSizes: WebElement[] = await this.driver.findElements(this.javaDownloadsPageModel.FILE_SIZE_ELEMENTS)
         let filesSizes: number[] = [];
         for (let fileSize of downloadSizes) {
             const digitFileSize: number = await OracleJavaDownloadsPage.getFileSizeFromData(fileSize)

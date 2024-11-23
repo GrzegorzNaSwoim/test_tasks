@@ -1,5 +1,5 @@
 import {BrowserDriver} from "../driver-wrapper/custom.driver";
-import {until} from "selenium-webdriver";
+import {until, WebDriver} from "selenium-webdriver";
 import {OracleHomePageModel} from "./oracle-home-page-models/oracle.home.page.model";
 import {CookiesPopupPage} from "./oracle-home-page-elements/cookies.popup.page";
 import {LanguageSettingsPopupPage} from "./oracle-home-page-elements/language.settings.popup.page";
@@ -11,7 +11,7 @@ import {IOraclePageElements} from "./oracle-home-page-interfaces/oracle.page.ele
  */
 export class OracleHomePage {
     private readonly LOADING_PAGE_TIMEOUT: number = 1000;
-    public driver: BrowserDriver;
+    public driver: WebDriver;
     public readonly pageElements: IOraclePageElements;
     private readonly oracleHomePageModel: OracleHomePageModel;
 
@@ -19,7 +19,7 @@ export class OracleHomePage {
      * Constructor for OracleHomePage.
      * @param webDriver - The browser driver to interact with the Oracle Home Page.
      */
-    public constructor(webDriver: BrowserDriver) {
+    public constructor(webDriver: WebDriver) {
         this.driver = webDriver;
         this.oracleHomePageModel = new OracleHomePageModel();
         this.pageElements = {
@@ -34,8 +34,8 @@ export class OracleHomePage {
      * This method navigates to the Oracle Home Page URL and waits for the page title to match the expected value.
      */
     public async openOraclePage(): Promise<void> {
-        await this.driver.browserDriver.get(this.oracleHomePageModel.PAGE_URL);
-        await this.driver.browserDriver.wait(until.titleIs(this.oracleHomePageModel.PAGE_TITLE),
+        await this.driver.get(this.oracleHomePageModel.PAGE_URL);
+        await this.driver.wait(until.titleIs(this.oracleHomePageModel.PAGE_TITLE),
             this.LOADING_PAGE_TIMEOUT);
     }
 }
